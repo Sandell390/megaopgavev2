@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using System.Text.Json;
 
 namespace electriccarAPI.Controllers
 {
@@ -6,16 +7,28 @@ namespace electriccarAPI.Controllers
     [ApiController]
     public class electricCarController : ControllerBase
     {
-        List<CarData> _cars = new List<CarData>();
+        static List<CarData> _cars;
+
+        public electricCarController()
+        {
+            if (_cars == null)
+            {
+                string json = System.IO.File.ReadAllText(@"MOCK_DATA.json");
+                _cars = JsonSerializer.Deserialize<List<CarData>>(json)!;
+            }
+
+        }
 
         [HttpGet]
         public ActionResult<IEnumerable<CarData>> GetElectricCars(int start = 0, int count = 20)
         {
-            if(start > _cars.Count || start < 0 || count > _cars.Count || count < 0){
+            Console.WriteLine("Car Count {0}", _cars.Count);
+            if (start > _cars.Count || start < 0 || count > _cars.Count || count < 0)
+            {
                 return BadRequest();
             }
 
-            if ( start + count > _cars.Count )
+            if (start + count > _cars.Count)
                 return Ok(_cars.GetRange(start, start - _cars.Count));
 
 
@@ -54,7 +67,7 @@ namespace electriccarAPI.Controllers
             electricCar.Id = _cars.Count + 1;
             _cars.Add(electricCar);
 
-            return CreatedAtAction("Created", electricCar.Id , electricCar);
+            return CreatedAtAction("Created", electricCar.Id, electricCar);
         }
 
         // DELETE: api/ElectricCars/5

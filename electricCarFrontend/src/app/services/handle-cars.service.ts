@@ -8,18 +8,26 @@ import { Cardata } from '../interfaces/cardata';
 })
 export class HandleCarsService {
 
-  url: string = 'http://localhost:7045';
+  url: string = 'http://localhost:5285';
   endpointgetCars: string = '/api/electriccar';
 
   constructor(private apiClient: HttpClient) { }
 
   getCars(start: number, count: number): Observable<Cardata[]> 
   {
+    console.log("Getting cars");
     const httpParams = new HttpParams()
       .set('start', start)
       .set('count', count);
 
     const cardata = this.apiClient.get<Cardata[]>(this.url + this.endpointgetCars, {params: httpParams});
+
+    return cardata;
+  }
+
+  getCar(id: number): Observable<Cardata> {
+
+    const cardata = this.apiClient.get<Cardata>(this.url + this.endpointgetCars + "/" + id);
 
     return cardata;
   }

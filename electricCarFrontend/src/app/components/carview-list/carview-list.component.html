@@ -1,1 +1,9 @@
-<p>carview-list works!</p>
+<div class="data-container">
+    <ul>
+        <li *ngFor="let car of cardataSubject | async">
+            <a [routerLink]="['/cars', car.id]">
+                <span>Brand: {{car.brand}}| Model: {{car.model}}| Year: {{car.year}}| Colors: <div *ngFor="let color of car.colors">{{color}}, </div></span>
+            </a>
+        </li>
+    </ul>
+</div>

@@ -10,10 +10,13 @@ import { HandleCarsService } from 'src/app/services/handle-cars.service';
 })
 export class CarviewListComponent {
 
-  cardataSubject: Subject<Cardata> = new Subject<Cardata>();
+  cardataSubject: Subject<Cardata[]> = new Subject<Cardata[]>();
 
   constructor(private _handleCarData: HandleCarsService) { 
-    
+    this._handleCarData.getCars(0, 20).subscribe((cars: Cardata[]) =>{
+      console.log("Data loaded");
+      this.cardataSubject.next(cars);
+    });
 
   }
 

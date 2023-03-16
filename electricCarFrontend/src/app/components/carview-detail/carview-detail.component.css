@@ -1,0 +1,39 @@
+.car-box {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.car-details {
+    flex-grow: 1;
+}
+
+.car-brand {
+    font-weight: bold;
+    font-size: 18px;
+    margin: 0;
+    margin-bottom: 5px;
+}
+
+.car-model,
+.car-year {
+    margin: 0;
+    color: #666;
+}
+
+.car-colors {
+    margin-top: 10px;
+}
+
+.color {
+    display: inline-block;
+    background-color: #ccc;
+    color: #fff;
+    padding: 2px 5px;
+    border-radius: 3px;
+    margin-right: 5px;
+}

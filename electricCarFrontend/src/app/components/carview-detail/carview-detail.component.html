@@ -1,1 +1,12 @@
 <p>carview-detail works!</p>
+
+<div class="car-box" *ngIf="(car$ | async) as car">
+    <div class="car-details ">
+        <h3 class="car-brand ">{{car.brand}}</h3>
+        <p class="car-model ">{{car.model}}</p>
+        <p class="car-year ">{{car.year}}</p>
+        <div class="car-colors ">
+            <span class="color " *ngFor="let color of car.colors ">{{color}}</span>
+        </div>
+    </div>
+</div>
