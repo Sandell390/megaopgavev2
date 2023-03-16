@@ -6,12 +6,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CarviewListComponent } from './components/carview-list/carview-list.component';
 import { CarviewDetailComponent } from './components/carview-detail/carview-detail.component';
+import { LoginComponent } from './components/login/login.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CarviewListComponent,
-    CarviewDetailComponent
+    CarviewDetailComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
