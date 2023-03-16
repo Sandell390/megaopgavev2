@@ -1,0 +1,43 @@
+# See http://help.github.com/ignore-files/ for more about ignoring files.
+
+# Compiled output
+electricCarFrontend/dist
+electricCarFrontend/tmp
+electricCarFrontend/out-tsc
+electricCarFrontend/bazel-out
+
+# Node
+electricCarFrontend/node_modules
+electricCarFrontend/npm-debug.log
+electricCarFrontend/yarn-error.log
+
+# IDEs and editors
+electricCarFrontend/.idea/
+electricCarFrontend/.project
+electricCarFrontend/.classpath
+electricCarFrontend/.c9/
+electricCarFrontend/*.launch
+.settings/
+*.sublime-workspace
+
+# Visual Studio Code
+electricCarFrontend/.vscode/*
+electricCarFrontend/!.vscode/settings.json
+electricCarFrontend/!.vscode/tasks.json
+electricCarFrontend/!.vscode/launch.json
+electricCarFrontend/!.vscode/extensions.json
+electricCarFrontend/.history/*
+
+# Miscellaneous
+electricCarFrontend/.angular/cache
+.electricCarFrontend/sass-cache/
+electricCarFrontend/connect.lock
+electricCarFrontend/coverage
+electricCarFrontend/libpeerconnection.log
+electricCarFrontend/testem.log
+electricCarFrontend/typings
+
+# System files
+electricCarFrontend/.DS_Store
+electricCarFrontend/Thumbs.db
+electriccarAPI/obj/Debug
