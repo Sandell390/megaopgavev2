@@ -1,9 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { CarviewDetailComponent } from './components/carview-detail/carview-detail.component';
 
 const routes: Routes = [
-  {path: 'cars/:id', component: CarviewDetailComponent},
+  {path: '', redirectTo: 'cars', pathMatch: "full"},
 ];
 
 @NgModule({

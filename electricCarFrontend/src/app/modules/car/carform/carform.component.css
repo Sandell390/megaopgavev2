@@ -8,6 +8,7 @@
     background-color: #eee;
     border: 1px solid #ccc;
     border-radius: 5px;
+
 }
 
 .button-save {
@@ -28,5 +29,9 @@
 
 .grayed-out {
     pointer-events: none;
-    opacity: 0.5;
+    opacity: 0.2;
+}
+
+label{
+    color: black;
 }

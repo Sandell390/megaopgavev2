@@ -11,26 +11,21 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { CarviewListComponent } from './components/carview-list/carview-list.component';
-import { CarviewDetailComponent } from './components/carview-detail/carview-detail.component';
 import { LoginComponent } from './components/login/login.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { CarformComponent } from './components/carform/carform.component';
+import { CarModule } from './modules/car/car.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CarviewListComponent,
-    CarviewDetailComponent,
     LoginComponent,
-    CarformComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule,MatTableModule, BrowserAnimationsModule,MatPaginatorModule,MatProgressSpinnerModule
+    ReactiveFormsModule,MatTableModule, BrowserAnimationsModule,MatPaginatorModule,MatProgressSpinnerModule, CarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

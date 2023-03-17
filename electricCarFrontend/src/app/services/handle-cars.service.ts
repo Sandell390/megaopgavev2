@@ -1,5 +1,6 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { BehaviorSubject, Observable, Subject } from 'rxjs';
 import { Cardata } from '../interfaces/cardata';
 
@@ -18,7 +19,7 @@ export class HandleCarsService {
 
   carObservable: Observable<Cardata[] | null> = this.carSubject.asObservable();
 
-  constructor(private apiClient: HttpClient) { 
+  constructor(private apiClient: HttpClient, private router: Router) { 
     this.getCars(0,20);
   }
 
@@ -50,6 +51,7 @@ export class HandleCarsService {
 
   deleteCar(id: number){
     this.apiClient.delete(this.url + this.endpointgetCars + "/" +id).subscribe(() => {this.getCars(this.currentStart,this.currentCount);});
+    this.router.navigate(['../cars', {outlets: { detail: null}}]);
   }
 
   createCar(car: Cardata){
