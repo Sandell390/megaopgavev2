@@ -1,1 +1,11 @@
-<p>login works!</p>
+<nav>
+    <h1>FDM</h1>
+    <div *ngIf="(UserObservable| async) as user" class="user-info">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16"><path fill="currentColor" d="M19 4h-4.18C14.4 2.84 13.3 2 12 2s-2.4.84-2.82 2H5v2h6c.6 0 1 .4 1 1v2c0 .55-.45 1-1 1H5v2h6c.6 0 1 .4 1 1v2c0 .55-.45 1-1 1H5v2h14v-2h-2v-2h2v-2h-2v-2h2V9h-2V7h2V4zm-7 10c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0-6c1.11 0 2 .89 2 2s-.89 2-2 2-2-.89-2-2 .89-2 2-2z"/></svg>
+        <span>{{user.username}} ({{user.role}})</span>
+    </div>
+    <input type="text" placeholder="Username" [(ngModel)]="username">
+    <input type="password" placeholder="Password" [(ngModel)]="password">
+    <button (click)="Login()">Login</button>
+    <div *ngIf="(ErrorObservable| async) as isError" class="error"><span *ngIf="isError"></span>Wrong input</div>
+</nav>

@@ -1,4 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { User } from 'src/app/interfaces/user';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -7,4 +10,21 @@ import { Component } from '@angular/core';
 })
 export class LoginComponent {
 
+  ErrorObservable: Observable<boolean>;
+
+  UserObservable: Observable<User | null>;
+
+  username: string = "";
+  password: string = "";
+
+  constructor(private authService: AuthService) { 
+
+    this.ErrorObservable = this.authService.errorObservable;
+    this.UserObservable = this.authService.userObservable;
+    
+  }
+
+  Login(){
+    this.authService.Login(this.username,this.password);
+  }
 }

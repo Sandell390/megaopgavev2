@@ -35,9 +35,50 @@ div {
     padding: 2px 5px;
     border-radius: 3px;
     margin-right: 5px;
+    margin-bottom: 20px;
 }
 
 .data-container {
     max-height: 400px;
     overflow-y: auto;
+}
+
+.data-box {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 20px auto;
+    max-width: 800px;
+}
+
+.data-container {
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.input-container {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.input-container label {
+    margin-right: 10px;
+    color: black;
+}
+
+.input-container input[type="number"] {
+    width: 80px;
+    margin-right: 10px;
+}
+
+.input-container button {
+    padding: 5px 10px;
+    border: none;
+    background-color: #4CAF50;
+    color: #fff;
+    cursor: pointer;
+}
+
+.input-container button:hover {
+    background-color: #3e8e41;
 }

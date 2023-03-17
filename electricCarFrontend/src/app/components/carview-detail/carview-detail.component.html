@@ -1,12 +1,27 @@
-<p>carview-detail works!</p>
-
 <div class="car-box" *ngIf="(car$ | async) as car">
-    <div class="car-details ">
-        <h3 class="car-brand ">{{car.brand}}</h3>
-        <p class="car-model ">{{car.model}}</p>
-        <p class="car-year ">{{car.year}}</p>
-        <div class="car-colors ">
+    <div class="car-details">
+        <h3 class="car-brand">{{car.brand}}</h3>
+        <p class="car-model">{{car.model}}</p>
+        <p class="car-year">{{car.year}}</p>
+        <div class="car-colors">
             <span class="color " *ngFor="let color of car.colors ">{{color}}</span>
         </div>
     </div>
+    <div class="box grayed-out" [class.grayed-out]="grayOut">
+        <label for="brand">Brand:</label>
+        <input class="input-field" type="text" id="brand" name="brand" [(ngModel)]="car.brand">
+        <label for="model">Model:</label>
+        <input class="input-field" type="text" id="model" name="model" [(ngModel)]="car.model">
+        <label for="year">Year:</label>
+        <input class="input-field" type="number" id="year" name="year" [(ngModel)]="car.year">
+        <label for="colors">Colors:</label>
+        <input class="input-field" type="text" id="colors" name="colors" [(ngModel)]="car.colors">
+        <div>
+            <button class="button-save" (click)="save(car)">Save!</button>
+            <a [routerLink]="['/']"><button class="button-save" (click)="delete(car)">Delete!</button></a>
+
+        </div>
+    </div>
+
+
 </div>

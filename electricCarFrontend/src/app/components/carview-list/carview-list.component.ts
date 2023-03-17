@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Subject } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import { Cardata } from 'src/app/interfaces/cardata';
 import { HandleCarsService } from 'src/app/services/handle-cars.service';
 
@@ -10,15 +10,19 @@ import { HandleCarsService } from 'src/app/services/handle-cars.service';
 })
 export class CarviewListComponent {
 
-  cardataSubject: Subject<Cardata[]> = new Subject<Cardata[]>();
+  cardataSubject: Observable<Cardata[] | null> = new Observable<Cardata[]>();
+
+  startIndex = 0;
+  count = 20;
+
 
   constructor(private _handleCarData: HandleCarsService) { 
-    this._handleCarData.getCars(0, 20).subscribe((cars: Cardata[]) =>{
-      console.log("Data loaded");
-      this.cardataSubject.next(cars);
-    });
+    this.cardataSubject = this._handleCarData.carObservable;
 
   }
 
+  applyFilter() {
+    this._handleCarData.getCars(this.startIndex,this.count);
+  }
 
 }

@@ -49,7 +49,7 @@ namespace electriccarAPI.Controllers
         }
 
         [HttpPut("{id}")]
-        public IActionResult PutElectricCar(int id, CarData electricCar)
+        public IActionResult PutElectricCar(int id, [FromBody]CarData electricCar)
         {
             if (id != electricCar.Id)
             {
@@ -62,12 +62,13 @@ namespace electriccarAPI.Controllers
         }
 
         [HttpPost]
-        public ActionResult<CarData> PostElectricCar(CarData electricCar)
+        public ActionResult<CarData> PostElectricCar([FromBody]CarData electricCar)
         {
+            Console.WriteLine("Posted Car");
             electricCar.Id = _cars.Count + 1;
             _cars.Add(electricCar);
 
-            return CreatedAtAction("Created", electricCar.Id, electricCar);
+            return Ok();
         }
 
         // DELETE: api/ElectricCars/5
